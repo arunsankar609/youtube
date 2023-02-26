@@ -3,7 +3,7 @@ import React from "react";
 const ChatMessages = ({name,message}) => {
   return (
     <div >
-      <div className="flex items-center p-1 m-1">
+      <div className="flex items-center p-1 m-1 ">
         <img
         className="w-11"
           alt="chat-icon"
