@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const VideoSlice=createSlice({
     name:"videoLink",
     initialState:{
-        videoLin:"zxczxc"
+        videoLin:""
     },
     reducers:{
         getVideoId:(state,action)=>{
-         return state.videoLin=action.payload
+        state.videoLin=action.payload
         }
     }
 })

@@ -2,42 +2,42 @@ import React from "react";
 const commentData = [
   {
     name: "Arun",
-    text: "savari giri giri giri",
+    text: "nested comments",
     reply: [
       {
         name: "Arun",
-        text: "savari giri giri giri",
+        text: "nested comments",
         reply: [ {
           name: "Arun",
-          text: "savari giri giri giri",
+          text: "nested comments",
           reply: [ {
             name: "Arun",
-            text: "savari giri giri giri",
+            text: "nested comments",
             reply: [ {
               name: "Arun",
-              text: "savari giri giri giri",
+              text: "nested comments",
               reply: [],
             },],
           },],
         }, {
           name: "Arun",
-          text: "savari giri giri giri",
+          text: "nested comments",
           reply: [ {
             name: "Arun",
-            text: "savari giri giri giri",
+            text: "nested comments",
             reply: [],
           },],
         },],
       },
       {
         name: "Arun",
-        text: "savari giri giri giri",
+        text: "nested comments",
         reply: [ {
           name: "Arun",
-          text: "savari giri giri giri",
+          text: "nested comments",
           reply: [ {
             name: "Arun",
-            text: "savari giri giri giri",
+            text: "nested comments",
             reply: [],
           },],
         },],
@@ -46,16 +46,16 @@ const commentData = [
   },
   {
     name: "Arun",
-    text: "savari giri giri giri",
+    text: "nested comments",
     reply: [ {
       name: "Arun",
-      text: "savari giri giri giri",
+      text: "nested comments",
       reply: [ {
         name: "Arun",
-        text: "savari giri giri giri",
+        text: "nested comments",
         reply: [ {
           name: "Arun",
-          text: "savari giri giri giri",
+          text: "nested comments",
           reply: [],
         },],
       },],
@@ -63,12 +63,12 @@ const commentData = [
   },
   {
     name: "Arun",
-    text: "savari giri giri giri",
+    text: "nested comments",
     reply: [],
   },
   {
     name: "Arun",
-    text: "savari giri giri giri",
+    text: "nested comments",
     reply: [],
   },
 ];

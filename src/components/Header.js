@@ -5,21 +5,23 @@ import { toggleMenu } from "../store/NavSlice";
 import { useSelector } from "react-redux";
 import { YOUTUBE_SEARCH_KEY } from "./constants/Constants";
 import { getSearch } from "../store/SearchSlice";
+import Select from "react-select";
+import { getVideoId } from "../store/VideoSlice";
 const Header = () => {
   const dispatch = useDispatch();
-  const searchCache=useSelector((store)=>store.search)
-  
+  const searchCache = useSelector((store) => store.search);
+
   const [videoSearch, setVideoSearch] = useState("");
   const [videoList, setVideoList] = useState([]);
+  const [selectVideo, setSelectVideo] = useState("");
   const [showSugg, setShowSugg] = useState(true);
   useEffect(() => {
     const cleartimer = setTimeout(() => {
-      if(searchCache[videoSearch]){
+      if (searchCache[videoSearch]) {
         setVideoList(searchCache[videoSearch]);
-      }else{
+      } else {
         searchYoutubeData();
       }
-      
     }, 200);
     return () => {
       clearTimeout(cleartimer);
@@ -30,10 +32,13 @@ const Header = () => {
     const data = await fetch(YOUTUBE_SEARCH_KEY + videoSearch);
     const json = await data.json();
     setVideoList(json);
-   
-    dispatch(getSearch({
-      [videoSearch]:json
-    }))
+    console.log("json", json);
+
+    dispatch(
+      getSearch({
+        [videoSearch]: json,
+      })
+    );
   };
 
   return (
@@ -59,7 +64,7 @@ const Header = () => {
       </div>
       <div className="mt-3 flex ">
         <div>
-          {" "}
+          
           <input
             className=" h-8 border border-gray-300 w-96 rounded-l-full"
             value={videoSearch}
@@ -67,14 +72,21 @@ const Header = () => {
             onFocus={() => setShowSugg(true)}
             onBlur={() => setShowSugg(false)}
           />
-          {showSugg && (
+          {/* {showSugg && (
             <div>
               {videoList[1]?.length > 1 ? (
                 <div className="bg-white h-auto relative rounded-xl p-2 m-2">
                   <ul>
-                    {videoList[1]?.map((list) => (
-                      <div className=" m-1">
-                        <li key={list}> {list}</li>
+                    {videoList[1]?.map((list,index) => (
+                      <div className=" m-1"   onClick={(e) => setVideoSearch(list)}>
+                        <li
+                       // value={list}
+                         
+                          key={index}
+                        >
+                          {list}
+                        </li>
+                       
                       </div>
                     ))}
                   </ul>
@@ -83,7 +95,7 @@ const Header = () => {
                 ""
               )}
             </div>
-          )}
+          )} */}
         </div>
 
         <div className="">
@@ -91,6 +103,7 @@ const Header = () => {
             alt="search"
             className=" h-8 w--8 border  border-gray-300 rounded-r-full"
             src="https://www.shutterstock.com/image-vector/gray-magnifying-glass-icon-isolated-260nw-1571188570.jpg"
+            onClick={()=>dispatch(getVideoId(videoSearch))}
           />
         </div>
       </div>
@@ -99,6 +112,7 @@ const Header = () => {
           className="h-10 mt-2"
           alt="user-icon"
           src="https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png"
+         
         />
       </div>
     </div>

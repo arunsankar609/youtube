@@ -26,7 +26,7 @@ const WatchPage = () => {
               className="rounded-xl"
               width="840"
               height="530"
-              src={"http://www.youtube.com/embed/" + searchParams.get("v")}
+              src={"https://www.youtube.com/embed/" + searchParams.get("v")}
               frameborder="0"
             ></iframe>
           </div>
